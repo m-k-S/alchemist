@@ -1,3 +1,4 @@
 jupyter==1.0.0
 ase==3.22.1
 sshconf==0.2.5
+python-dotenv=1.0.0
