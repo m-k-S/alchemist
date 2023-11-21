@@ -1,7 +1,9 @@
 import subprocess
 from sshconf import read_ssh_config
+import webbrowser
 from os.path import expanduser
 import argparse
+
 
 def main():
     parser = argparse.ArgumentParser(prog="Alchemist")
@@ -29,7 +31,7 @@ def launch_server(args):
     port = args.port
     token = args.token
     command = ["jupyter", "notebook", "--port={port}".format(port=port), "--NotebookApp.token={token}".format(token=token), "--no-browser"]
-    subprocess.Popen(command)
+    subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 def connect(args):
     port = args.port
@@ -38,8 +40,12 @@ def connect(args):
     if host not in c.hosts():
         raise ValueError("Host not found in ssh config file")
     else: 
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW  
+
         command = ['ssh', '-L', '{port}:localhost:{port}'.format(port=port), host]
-        subprocess.Popen(command)
+        subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, startupinfo=startupinfo)
+        webbrowser.open('localhost:{port}'.format(port=port), new=2)
 
 if __name__ == "__main__":
     main()
