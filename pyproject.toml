@@ -10,6 +10,11 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.9"
 dynamic = ["version"]
+exclude = ["directory_to_exclude/*", "another_directory_to_exclude/*"]
 
 [project.scripts]
 alchemist = "alchemist.__init__:main"
+
+[tool.setuptools.packages.find]
+exclude = ['examples', 'pp']
+include = ['alchemist']
