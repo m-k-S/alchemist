@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alchemist"
+authors = [
+    {name = "Max Aukana", email = "aukana@mit.edu"},
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dynamic = ["version"]
+
+[project.scripts]
+alchemist = "alchemist.__init__:main"
