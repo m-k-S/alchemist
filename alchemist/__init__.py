@@ -12,7 +12,7 @@ def main():
     # Define a subcommand
     start_parser = subparsers.add_parser("start")
     start_parser.add_argument("--port", help="port to open jupyter server on", default=8080)
-    start_parser.add_argument("--token", help="jupyter token", default="alchemst")
+    start_parser.add_argument("--token", help="jupyter token", default="alchemist")
 
     connect_parser = subparsers.add_parser("connect")
     connect_parser.add_argument("host", type=str, help="ssh hostname of remote server")
