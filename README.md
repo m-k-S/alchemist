@@ -1,4 +1,22 @@
+# Current Features
+
+## Interactivity
+
+- Start interactive QE session in Jupyter or connect to remote Jupyter server
+
+## QE 
+
+- Structural relaxation
+- Band gap calculation 
+
 # To-Do
+
+## QE
+
+- Phonon band structure / DOS calculation workflow
+- Electron band structure / DOS calculation workflow
+- Seebeck coefficient calculation
+- 
 
 ## JAX PySCF
 - Re-write critical functions of PySCF in JAX for automatic differentiation and TPU acceleration support
@@ -8,16 +26,21 @@
 
 ## Structure
 - Class for building atomic environments
+    - Automatically pull structures from Materials Project if they exist
 - Config class for QE input parameters
 - Config class for QE output parameters
 
 ## Productivity Tools
+
+### LLM
 - OpenAI Embedding for QE documentations
 - ChatGPT interface for generating QE input files for specific tasks (e.g. band gap calculations)
     - Linter / sandbox for testing QE input file validity
+- Automatic plotting of QE output files
+
+### Compute Cluster
 - Queueing system for sending jobs to compute clusters
 - Mobile notifications and job submission
-- Automatic plotting of QE output files
 
 ## Documentation 
 - Document how to install, set up QE and point to the pw.x executable
