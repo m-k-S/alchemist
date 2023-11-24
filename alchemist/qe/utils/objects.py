@@ -2,6 +2,14 @@ import ase, json
 from .processes import write_file
 import os
 
+import dotenv
+
+dotenv.load_dotenv()
+PWSCF_COMMAND = os.environ.get("PWSCF_COMMAND")
+PPDIR = os.environ.get("PSEUDOPOTENTIALS")
+LAMMPS = os.environ.get("LAMMPS")
+
+
 class Generic(object):
     """
     The basic class for a data object. it is defined by the attribute content which can be a number,
@@ -153,7 +161,7 @@ class PseudoPotential(Potential):
     def __init__(self, **kwargs):
         if 'path' not in kwargs:
             name = kwargs['name']
-            potpath = os.path.join(os.environ['ESPRESSO_PSEUDO'], name)
+            potpath = os.path.join(PPDIR, name)
             kwargs.update({'path': potpath})
         super().__init__(**kwargs)
 
@@ -162,7 +170,7 @@ class ClassicalPotential(Potential):
     """ Classical potential, e.g. EAM, Buckingham, OPLS etc """
     def __init__(self, **kwargs):
         if 'path' not in kwargs:
-            potpath = os.path.join(os.environ['LAMMPS_POTENTIALS'], kwargs['name'])
+            potpath = os.path.join(LAMMPS, kwargs['name'])
             kwargs.update({'path': potpath})
         super().__init__(**kwargs)
     pass

@@ -1,7 +1,12 @@
 from .objects import Param, TextFile, ExternalCode, File
 from .processes import prepare_dir, run_command, write_file
-import numpy
 import os
+
+import dotenv
+
+dotenv.load_dotenv()
+PWSCF_COMMAND = os.environ.get("PWSCF_COMMAND")
+PPDIR = os.environ.get("PSEUDOPOTENTIALS")
 
 
 class PWscf_inparam(Param):
@@ -26,7 +31,7 @@ def qe_value_map(value):
             return '.true.'
         else:
             return '.false.'
-    elif isinstance(value, (float, numpy.float)) or isinstance(value, (int, numpy.int)):
+    elif isinstance(value, (float)) or isinstance(value, (int)):
         return str(value)
     elif isinstance(value, str):
         return "'{}'".format(value)
@@ -82,7 +87,7 @@ def write_pwscf_input(runpath, params, struc, kpoints, pseudopots, constraint=No
     return infile
 
 def run_qe_pwscf(struc, runpath, pseudopots, params, kpoints, constraint=None, ncpu=1):
-    pwscf_code = ExternalCode({'path': os.environ['PWSCF_COMMAND']})
+    pwscf_code = ExternalCode({'path': PWSCF_COMMAND})
     prepare_dir(runpath.path)
     infile = write_pwscf_input(params=params, struc=struc, kpoints=kpoints, runpath=runpath,
                                pseudopots=pseudopots, constraint=constraint)
