@@ -1,5 +1,21 @@
 # To-Do
 
+## JAX PySCF
+- Re-write critical functions of PySCF in JAX for automatic differentiation and TPU acceleration support
+
+## Hybrid KMC
+- Automatically compute activation energies, rate constants using ab-initio calculations
+
+## Features
+- Embedding for QE documentations
+- Config class for QE input parameters
+- ChatGPT interface for generating QE input files for specific tasks (e.g. band gap calculations)
+    - Linter / sandbox for testing QE input file validity
+- Queueing system for sending jobs to compute clusters
+- Mobile notifications and job submission
+- Automatic plotting of QE output files
+
+
 ## Documentation 
 - Document how to install, set up QE and point to the pw.x executable
 
@@ -14,9 +30,3 @@
 - Run this at the top of the notebook:
     os.environ['SLURM_TASKS_PER_NODE'] = os.environ['SLURM_CPUS_PER_TASK']
     os.environ['SLURM_CPUS_PER_TASK'] = "1"
-
-What the fuck:
-The application appears to have been direct launched using "srun",
-but OMPI was not built with SLURM's PMI support and therefore cannot
-execute. There are several options for building PMI support under
-SLURM, depending upon the SLURM version you are using:
