@@ -4,7 +4,6 @@ import webbrowser
 from os.path import expanduser
 import argparse
 
-
 def main():
     parser = argparse.ArgumentParser(prog="Alchemist")
     subparsers = parser.add_subparsers(dest="command")

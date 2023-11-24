@@ -6,15 +6,18 @@
 ## Hybrid KMC
 - Automatically compute activation energies, rate constants using ab-initio calculations
 
-## Features
-- Embedding for QE documentations
+## Structure
+- Class for building atomic environments
 - Config class for QE input parameters
+- Config class for QE output parameters
+
+## Productivity Tools
+- OpenAI Embedding for QE documentations
 - ChatGPT interface for generating QE input files for specific tasks (e.g. band gap calculations)
     - Linter / sandbox for testing QE input file validity
 - Queueing system for sending jobs to compute clusters
 - Mobile notifications and job submission
 - Automatic plotting of QE output files
-
 
 ## Documentation 
 - Document how to install, set up QE and point to the pw.x executable
