@@ -16,7 +16,7 @@
 - Phonon band structure / DOS calculation workflow
 - Electron band structure / DOS calculation workflow
 - Seebeck coefficient calculation
-- 
+- Magnetic susceptibility
 
 ## JAX PySCF
 - Re-write critical functions of PySCF in JAX for automatic differentiation and TPU acceleration support
