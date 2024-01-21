@@ -1,6 +1,7 @@
 jupyter==1.0.0
 ase==3.22.1
 sshconf==0.2.5
-python-dotenv=1.0.0
+python-dotenv==1.0.0
 requests==2.31.0
 nglview==3.0.8
+mp_api
